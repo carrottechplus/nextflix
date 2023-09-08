@@ -1,10 +1,12 @@
 import Header from '@/components/Header';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import requests from '@/utils/request';
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
+	console.log(props);
 	return (
-		<>
+		<div className='relative h-screen bg-gradient-to-b from-[#333] to-[#141414]'>
 			<Head>
 				<title>NEXTFLIX</title>
 				<link rel='icon' href='/favicon.ico' />
@@ -12,8 +14,16 @@ const Home: NextPage = () => {
 
 			<Header />
 			<main></main>
-		</>
+		</div>
 	);
 };
 
 export default Home;
+
+export const getServerSideProps = async () => {
+	const sf = await fetch(requests.sf).then((res) => res.json());
+	const animation = await fetch(requests.animation).then((res) => res.json());
+	return {
+		props: { sf: sf.results, animation: animation.results },
+	};
+};

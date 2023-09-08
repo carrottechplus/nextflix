@@ -12,7 +12,7 @@ function Header() {
 	}, []);
 
 	return (
-		<header className={`${Scrolled && 'bg-red-500'}`}>
+		<header className={`transition-colors duration-[.5s] ${Scrolled && 'bg-[#141414]'}`}>
 			<div className='flex items-center space-x-2 md:space-x-10'>
 				<h1>
 					<img src='https://rb.gy/ulxxee' alt='nextflix' width={100} height={100} className='cursor-pointer' />
