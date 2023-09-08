@@ -5,9 +5,11 @@ function Header() {
 			<h1>NEXTFLIX</h1>
 			<nav>
 				<ul>
-					<li>menu 01</li>
-					<li>menu 02</li>
-					<li>menu 03</li>
+					<li className='headerLink'>Home</li>
+					<li className='headerLink'>TV show</li>
+					<li className='headerLink'>Movies</li>
+					<li className='headerLink'>New & Popular</li>
+					<li className='headerLink'>My list</li>
 				</ul>
 			</nav>
 		</header>
