@@ -2,6 +2,7 @@ import { Movie } from '@/types';
 import { baseURL } from '@/url';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 interface Props {
 	original: Movie[];
@@ -25,8 +26,20 @@ function Banner({ original }: Props) {
 					</div>
 
 					{/* title */}
-					<h2 className='relative z-[2] text-2xl font-bold drop-shadow md:text-4xl lg:text-7xl'>{Movie.title || Movie.name}</h2>
+					<h2 className='relative z-[2] text-2xl font-bold drop-shadow-2xl md:text-4xl lg:text-7xl'>{Movie.title || Movie.name}</h2>
+
+					{/* overview */}
 					<p className='relative z-[2] text-xs max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl'>{Movie.overview}</p>
+
+					{/* button set */}
+					<nav className='relative z-[2] flex space-x-3'>
+						<button className='bannerBtn'>
+							<FaPlay /> Play
+						</button>
+						<button className='bannerBtn'>
+							<FaInfoCircle /> More Info
+						</button>
+					</nav>
 				</>
 			)}
 		</section>
