@@ -4,6 +4,7 @@ import Head from 'next/head';
 import requests from '@/utils/request';
 import { Movie } from '@/types';
 import Banner from '@/components/Banner';
+import Row from '@/components/Row';
 
 interface Props {
 	original: Movie[];
@@ -27,6 +28,10 @@ const Home: NextPage<Props> = ({ original, top, sf, animation, drama, comedy, fa
 			<Header />
 			<main className='relative px-4 pb-24 lg:px-16 lg:space-y-24'>
 				<Banner original={original} />
+
+				<section>
+					<Row movies={top} title={'Top Rated'} />
+				</section>
 			</main>
 		</div>
 	);
