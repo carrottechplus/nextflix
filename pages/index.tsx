@@ -3,9 +3,20 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import requests from '@/utils/request';
 import Image from 'next/image';
+import { Movie } from '@/types';
 
-const Home: NextPage = (props) => {
-	console.log(props);
+interface Props {
+	top: Movie[];
+	sf: Movie[];
+	animation: Movie[];
+	drama: Movie[];
+	comedy: Movie[];
+	fantasy: Movie[];
+}
+
+// Next에서 기본으로 제공하는 NextPage 타입에는 커스텀 Props 타입이 설정되어있지 않기 떄문에 Generic을 활용해서 Props 타입의 interface를 직접 변수로 호출할 때 설정
+const Home: NextPage<Props> = ({ top, sf, animation, drama, comedy, fantasy }: Props) => {
+	console.log(fantasy);
 	return (
 		<div className='relative h-screen bg-gradient-to-b from-[#333] to-[#141414]'>
 			<Head>
@@ -15,7 +26,7 @@ const Home: NextPage = (props) => {
 
 			<Header />
 			<main>
-				<Image src={`https://image.tmdb.org/t/p/original/${props.top[0].backdrop_path}`} alt='image' width={500} height={500} />
+				<Image src={`https://image.tmdb.org/t/p/original/${top[0].backdrop_path}`} alt='image' width={500} height={500} />
 			</main>
 		</div>
 	);
