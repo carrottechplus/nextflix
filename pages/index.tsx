@@ -19,7 +19,7 @@ interface Props {
 // Next에서 기본으로 제공하는 NextPage 타입에는 커스텀 Props 타입이 설정되어있지 않기 떄문에 Generic을 활용해서 Props 타입의 interface를 직접 변수로 호출할 때 설정
 const Home: NextPage<Props> = ({ original, top, sf, animation, drama, comedy, fantasy }: Props) => {
 	return (
-		<div className='relative h-screen bg-gradient-to-b from-[#333] to-[#141414]'>
+		<div className='relative h-screen'>
 			<Head>
 				<title>NEXTFLIX</title>
 				<link rel='icon' href='/favicon.ico' />
