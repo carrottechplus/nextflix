@@ -16,11 +16,11 @@ function Banner({ original }: Props) {
 		setMovie(original[randomNum]);
 	}, [original]);
 	return (
-		<section className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
+		<section className='px-4 pb-24 pt-40  flex flex-col space-y-4 py-16 md:space-y-8 lg:space-y-12 lg:px-16 lg:h-[95vh] lg:justify-end lg:pb-40 overflow-hidden relative'>
 			{Movie && (
 				<>
-					<div className='absolute top-0 left-0 z-[1] h-[95vh] w-full'>
-						<Image src={`${baseURL}${Movie.backdrop_path}`} alt={`${Movie.title || Movie.name}`} fill priority quality={50} className='object-cover' />
+					<div className='absolute top-0 left-0 z-[1] h-full w-full opacity-50'>
+						<Image src={`${baseURL}${Movie.backdrop_path}`} alt={`${Movie.title || Movie.name}`} fill priority quality={70} className='object-cover' />
 					</div>
 
 					{/* title */}
@@ -34,7 +34,7 @@ function Banner({ original }: Props) {
 						<button className='bannerBtn bg-white text-black'>
 							<FaPlay /> Play
 						</button>
-						<button className='bannerBtn bg-[gray]'>
+						<button className='bannerBtn bg-[gray] text-white'>
 							<FaInfoCircle /> More Info
 						</button>
 					</nav>

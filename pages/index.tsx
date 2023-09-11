@@ -26,9 +26,8 @@ const Home: NextPage<Props> = ({ original, top, sf, animation, drama, comedy, fa
 			</Head>
 
 			<Header />
-			<main className='relative px-4 pb-24 lg:px-16 lg:space-y-24'>
+			<main className='relative lg:space-y-24'>
 				<Banner original={original} />
-
 				<section>
 					<Row movies={top} title={'Top Rated'} />
 				</section>
