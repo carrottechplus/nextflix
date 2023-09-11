@@ -21,12 +21,12 @@ function Banner({ original }: Props) {
 			{Movie && (
 				<>
 					<div className='absolute top-0 left-0 z-[1] h-[95vh] w-full'>
-						<Image src={`${baseURL}${Movie?.backdrop_path}`} alt={`${Movie?.title || Movie?.name}`} fill priority quality={50} className='object-cover' />
+						<Image src={`${baseURL}${Movie.backdrop_path}`} alt={`${Movie.title || Movie.name}`} fill priority quality={50} className='object-cover' />
 					</div>
 
 					{/* title */}
-					<h2 className='relative z-[2] text-2xl font-bold drop-shadow md:text-4xl lg:text-7xl'>{Movie?.title || Movie?.name}</h2>
-					<p className='relative z-[2] text-xs max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl'>{Movie?.overview}</p>
+					<h2 className='relative z-[2] text-2xl font-bold drop-shadow md:text-4xl lg:text-7xl'>{Movie.title || Movie.name}</h2>
+					<p className='relative z-[2] text-xs max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl'>{Movie.overview}</p>
 				</>
 			)}
 		</section>
