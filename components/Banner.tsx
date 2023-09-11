@@ -18,13 +18,17 @@ function Banner({ original }: Props) {
 	}, [original]);
 	return (
 		<section className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
-			<div className='absolute top-0 left-0 z-[1] h-[95vh] w-full'>
-				<Image src={`${baseURL}${Movie?.backdrop_path}`} alt={`${Movie?.title || Movie?.name}`} fill priority quality={50} className='object-cover' />
-			</div>
+			{Movie && (
+				<>
+					<div className='absolute top-0 left-0 z-[1] h-[95vh] w-full'>
+						<Image src={`${baseURL}${Movie?.backdrop_path}`} alt={`${Movie?.title || Movie?.name}`} fill priority quality={50} className='object-cover' />
+					</div>
 
-			{/* title */}
-			<h2 className='relative z-[2]'>{Movie?.title || Movie?.name}</h2>
-			<p className='relative z-[2]'>{Movie?.overview}</p>
+					{/* title */}
+					<h2 className='relative z-[2] text-2xl font-bold drop-shadow md:text-4xl lg:text-7xl'>{Movie?.title || Movie?.name}</h2>
+					<p className='relative z-[2] text-xs max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl'>{Movie?.overview}</p>
+				</>
+			)}
 		</section>
 	);
 }
