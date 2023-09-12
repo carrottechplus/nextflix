@@ -30,6 +30,7 @@ function Banner({ original }: Props) {
 							className='object-cover'
 						/>
 						<div className='absolute bottom-0 left-0 w-full h-full bg-gradient1'></div>
+						<div className='w-[60px] h-[60px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-solid border-4 border-red-300 border-t-[transparent] rounded-[50%] z-20 animate-ani-rotation'></div>
 					</div>
 
 					{/* title */}
