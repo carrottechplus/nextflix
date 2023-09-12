@@ -52,6 +52,6 @@ export const getServerSideProps = async () => {
 	]);
 
 	return {
-		props: { original: original.results, top: top.results, sf: sf.results, animation: animation.results, drama: drama.results, comedy: comedy.results, fantasy: fantasy.results },
+		props: { original: original.results, top_rated: top.results, sf: sf.results, animation: animation.results, drama: drama.results, comedy: comedy.results, fantasy: fantasy.results },
 	};
 };
