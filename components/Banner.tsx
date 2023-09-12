@@ -1,7 +1,7 @@
 import { Movie } from '@/types';
 import { baseURL } from '@/url';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
 }
 
 function Banner({ original }: Props) {
+	const loading = useRef<any>(null);
 	const [Movie, setMovie] = useState<Movie | null>(null);
 	// 함수에 타입지정이 필수이지만 내장 hook 이기 떄문에 타입 안써도 되긴하나 오류방지 차원에서 generic이용하여 작성
 	useEffect(() => {
@@ -28,9 +29,13 @@ function Banner({ original }: Props) {
 							quality={100}
 							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 50vw'
 							className='object-cover'
+							onLoadingComplete={() => loading.current.remove()}
 						/>
 						<div className='absolute bottom-0 left-0 w-full h-full bg-gradient1'></div>
-						<div className='w-[60px] h-[60px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-solid border-4 border-red-300 border-t-[transparent] rounded-[50%] z-20 animate-ani-rotation'></div>
+						<div
+							ref={loading}
+							className='w-[60px] h-[60px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-solid border-4 border-red-300 border-t-[transparent] rounded-[50%] z-20 animate-ani-rotation'
+						></div>
 					</div>
 
 					{/* title */}
