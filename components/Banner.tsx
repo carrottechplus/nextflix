@@ -20,7 +20,15 @@ function Banner({ original }: Props) {
 			{Movie && (
 				<>
 					<div className='absolute top-0 left-0 z-[1] h-full w-full'>
-						<Image src={`${baseURL}original${Movie.backdrop_path}`} alt={`${Movie.title || Movie.name}`} fill priority quality={70} className='object-cover' />
+						<Image
+							src={`${baseURL}original${Movie.backdrop_path}`}
+							alt={`${Movie.title || Movie.name}`}
+							fill
+							priority
+							quality={100}
+							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 50vw'
+							className='object-cover'
+						/>
 						<div className='absolute bottom-0 left-0 w-full h-full bg-gradient1'></div>
 					</div>
 
