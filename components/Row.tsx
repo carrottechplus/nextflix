@@ -22,6 +22,8 @@ function Row({ title, movies }: Props) {
 							<li key={idx} className='w-[200px] h-[calc(15vh-40px)] relative min-w-[200px]'>
 								<Image
 									src={`${baseURL}w300${movie.backdrop_path}`}
+									placeholder='blur'
+									blurDataURL={`${baseURL}w300${movie.backdrop_path}`}
 									alt={`${movie.title || movie.name}`}
 									fill
 									sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
