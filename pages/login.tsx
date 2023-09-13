@@ -1,8 +1,24 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import logo from '@/public/img/logo.svg';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useState } from 'react';
+
+interface Inputs {
+	email: string;
+	password: string;
+}
 
 function Login() {
+	const [Login, setLogin] = useState<boolean>(false);
+
+	const {
+		register, // 원하는 input 요소에 전개연산자로 등록해서 값 관리
+		handleSubmit, // submit event 발생시 register에 등록된 input 값들의 인증처리 함수
+		formState: { errors }, // 인증 실패시 커스텀 에러 메세지를 담을 수 있는 객체
+	} = useForm<Inputs>();
+	// 객체 반환하는데 객체안에 위 reg, hand, form 반환함, 근데 formState 안에 또 객체가 존재 (중첩 객체)
+
 	return (
 		<main className='relative flex w-full h-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent'>
 			<Head>
