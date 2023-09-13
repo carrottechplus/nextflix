@@ -9,11 +9,11 @@ import Row from '@/components/Row';
 interface Props {
 	original: Movie[];
 	top: Movie[];
-	sf: Movie[];
 	animation: Movie[];
-	drama: Movie[];
-	comedy: Movie[];
 	fantasy: Movie[];
+	science_fiction: Movie[];
+	TV_movies: Movie[];
+	western: Movie[];
 }
 
 // Next에서 기본으로 제공하는 NextPage 타입에는 커스텀 Props 타입이 설정되어있지 않기 떄문에 Generic을 활용해서 Props 타입의 interface를 직접 변수로 호출할 때 설정
@@ -41,17 +41,25 @@ const Home: NextPage<Props> = (props: Props) => {
 export default Home;
 
 export const getServerSideProps = async () => {
-	const [original, top, sf, animation, drama, comedy, fantasy] = await Promise.all([
+	const [original, top, animation, fantasy, science_fiction, TV_movies, western] = await Promise.all([
 		fetch(requests.original).then((res) => res.json()),
 		fetch(requests.top).then((res) => res.json()),
-		fetch(requests.sf).then((res) => res.json()),
 		fetch(requests.animation).then((res) => res.json()),
-		fetch(requests.drama).then((res) => res.json()),
-		fetch(requests.comedy).then((res) => res.json()),
 		fetch(requests.fantasy).then((res) => res.json()),
+		fetch(requests.science_fiction).then((res) => res.json()),
+		fetch(requests.TV_movies).then((res) => res.json()),
+		fetch(requests.western).then((res) => res.json()),
 	]);
 
 	return {
-		props: { original: original.results, top_rated: top.results, sf: sf.results, animation: animation.results, drama: drama.results, comedy: comedy.results, fantasy: fantasy.results },
+		props: {
+			original: original.results,
+			top_rated: top.results,
+			animation: animation.results,
+			fantasy: fantasy.results,
+			science_fiction: science_fiction.results,
+			TV_movies: TV_movies.results,
+			western: western.results,
+		},
 	};
 };

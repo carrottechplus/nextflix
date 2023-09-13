@@ -14,7 +14,7 @@ const config: Config = {
 				},
 			},
 			animation: {
-				'ani-rotation': 'rotation 1s linear infinite',
+				rotation: 'rotation 1s linear infinite',
 			},
 		},
 	},
