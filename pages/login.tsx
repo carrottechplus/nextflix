@@ -17,15 +17,18 @@ function Login() {
 		handleSubmit, // submit event 발생시 register에 등록된 input 값들의 인증처리 함수
 		formState: { errors }, // 인증 실패시 커스텀 에러 메세지를 담을 수 있는 객체
 	} = useForm<Inputs>();
-	// 객체 반환하는데 객체안에 위 reg, hand, form 반환함, 근데 formState 안에 또 객체가 존재 (중첩 객체)
 
 	//handleSubmit 함수 인증처리 완료시 동기적으로 실행될 콜백함수 등록
 	//해당 콜백함수는 인증에 성공했을만 호출: 인수로 전달되는 값은 관리되고 있는 form의 value값
 	const join: SubmitHandler<Inputs> = async ({ email, password }) => {
-		console.log('email', email);
-		console.log('password', password);
+		if (Login) {
+			//Sign In 클릭시 처리할 구문
+			console.log('sign in 클릭');
+		} else {
+			//Sign up 클릭시 처리할 구문
+			console.log('sign up 클릭');
+		}
 	};
-
 	return (
 		<main className='relative flex w-full h-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent'>
 			<Head>
@@ -42,19 +45,19 @@ function Login() {
 			>
 				<h2 className='text-4l font-semibold'>Sign In</h2>
 				<div className='space-y-4'>
-					<input type='email' placeholder='Email' className='input' {...register('email', { required: true })} />
+					<input type='email' placeholder='Email' className='input' {...register('email', { required: true, minLength: 4, maxLength: 20 })} />
 					{errors.email && <span>Please enter a valid Email</span>}
-					<input type='password' placeholder='Password' className='input' {...register('password', { required: true })} />
+					<input type='password' placeholder='Password' className='input' {...register('password', { required: true, minLength: 7, maxLength: 20 })} />
 					{errors.password && <span>Please enter a valid Password</span>}
 				</div>
 
-				<button type='button' className='w-full rounded bg-[#e40914] py-3 font-semibold'>
+				<button className='w-full rounded bg-[#e40914] py-3 font-semibold' onClick={() => setLogin(true)}>
 					Sign In
 				</button>
 
 				<div className='text-[grey]'>
 					New to Nextflix?
-					<button type='button' className='text-white ml-4 hover:underline font-semibold'>
+					<button className='text-white ml-4 hover:underline font-semibold' onClick={() => setLogin(false)}>
 						Sign up Now
 					</button>
 				</div>
